@@ -1,6 +1,7 @@
 
 const countTests = require('./countTests');
 const produceTestReport = require('./produceTestReport');
+const getFunctionParams = require('./getFunctionParams');
 
 
 // Run all the tests, collecting the errors and successes
@@ -31,7 +32,13 @@ module.exports = function runTests(tests) {
       };
 
       try {
-        fn(done);
+        const fnExpectCallback = getFunctionParams(fn).length > 0;
+        if (fnExpectCallback) {
+          fn(done);
+        } else {
+          fn();
+          done();
+        }
       } catch(error) {
         // If it throws, then it failed, so capture the error thrown and log it in red
         errors.push({

@@ -4,14 +4,12 @@ const range = require('../range.js');
 
 module.exports = {
 
-  ['Gives the correct range between low and (not inluded) high number'](done) {
+  ['Gives the correct range between low and (not inluded) high number']() {
     assert.deepEqual(range(3, 7), [ 3, 4, 5, 6 ]);
-    done();
   },
 
-  ['Returns empty array when high is lower than low'](done) {
+  ['Returns empty array when high is lower than low']() {
     assert.deepEqual(range(7, 3), []);
-    done();
   },
 
 };

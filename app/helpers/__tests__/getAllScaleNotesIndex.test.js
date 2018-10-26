@@ -5,7 +5,7 @@ const getAllScaleNotesIndex = require('../getAllScaleNotesIndex');
 
 module.exports = {
 
-  ['C major scale complete'](done) {
+  ['C major scale complete']() {
     assert.deepEqual(
       getAllScaleNotesIndex({ tonicIndex: 60, scale: 'major' }),
       // Result
@@ -64,7 +64,6 @@ module.exports = {
         108,
       ]
     );
-    done();
   },
 
 
